@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
     <title>Document</title>
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
+    <h2>Round <span id="round-num">1</span></h2>
     <div id="play-arena">
         <button id="rock">🪨</button>
         <button id="paper">🗞</button>
         <button id="scissors">✂️</button>
     </div>
-    
+    <div id="score-board">
+        <div>
+            <p class="score-name">Player</p>
+            <p id="player-score">0</p>
+        </div>
+        <div>
+            <p class="score-name">Computer</p>
+            <p id="computer-score">0</p>
+        </div>
+    </div>
+    <script src="play.js"></script>
 </body>
 </html>
