@@ -78,7 +78,7 @@ function printWinnerBestOfFive() {
     }
 }
 
-function rockPaperScissors(playerSelection, computerSelection) {
-    console.log("Rock, Paper, Scissors...");
-    determineWinner(getPlayerChoice(), getComputerChoice());
-}
+// function rockPaperScissors(playerSelection, computerSelection) {
+//     console.log("Rock, Paper, Scissors...");
+//     determineWinner(getPlayerChoice(), getComputerChoice());
+// }
