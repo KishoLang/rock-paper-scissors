@@ -2,11 +2,18 @@
 let playerScore = 0;
 let computerScore = 0;
 let round = 1;
+let currentlyInRound = false;
+const timeBeforeNewRound = 2000;
 
 // Grab references to buttons
 const rockBtn = document.getElementById("rock");
 const paperBtn = document.getElementById("paper");
 const scissorsBtn = document.getElementById("scissors");
+
+// Grab robot choice spans
+const cpuRock = document.getElementById("cpu-rock");
+const cpuPaper = document.getElementById("cpu-paper");
+const cpuScissors = document.getElementById("cpu-scissors");
 
 // Grab references to score elements
 const playerScoreText = document.getElementById("player-score");
@@ -21,18 +28,21 @@ const modalBtn = document.getElementById("modal-btn");
 
 // Check for Button presses
 rockBtn.addEventListener("click", () => {
+    if (currentlyInRound) return;
     playOneRound("Rock");
-    window.setTimeout(handleRounds, 500);
+    window.setTimeout(handleRounds, timeBeforeNewRound);
 });
 
 paperBtn.addEventListener("click", () => {
+    if (currentlyInRound) return;
     playOneRound("Paper");
-    window.setTimeout(handleRounds, 500);
+    window.setTimeout(handleRounds, timeBeforeNewRound);
 });
 
 scissorsBtn.addEventListener("click", () => {
+    if (currentlyInRound) return;
     playOneRound("Scissors");
-    window.setTimeout(handleRounds, 500);
+    window.setTimeout(handleRounds, timeBeforeNewRound);
 })
 
 modalBtn.addEventListener("click", () => {
@@ -40,11 +50,17 @@ modalBtn.addEventListener("click", () => {
 })
 
 function removeFocus() {
+    // Remove player button focus
     if (document.activeElement != document.body) document.activeElement.blur();
+    // Hide cpu choice 
+    cpuRock.style.visibility = "hidden";
+    cpuPaper.style.visibility = "hidden";
+    cpuScissors.style.visibility = "hidden";
 }
 
 function handleRounds() {
     removeFocus();
+    result.textContent = "Make your choice!";
     if (round < 5) {
         round++;
         roundText.textContent = round;
@@ -54,6 +70,7 @@ function handleRounds() {
         scissorsBtn.disabled = true;
         wonBestOfFive();
     }
+    currentlyInRound = false;
 }
 
 function newGame() {
@@ -64,25 +81,26 @@ function newGame() {
     playerScoreText.textContent = playerScore;
     computerScore = 0;
     computerScoreText.textContent = computerScore;
-    result.textContent = "Rock...Paper...Scissors!";
+    result.textContent = "Make your choice!";
     rockBtn.disabled = false;
     paperBtn.disabled = false;
     scissorsBtn.disabled = false;
 }
 
 function playOneRound(playerChoice) {
+    currentlyInRound = true;
     determineWinner(playerChoice, getComputerChoice());
 } 
 
 function wonBestOfFive() {
     if (playerScore > computerScore) {
-        modalText.textContent = `You have won with ${playerScore} to ${computerScore}!`;
+        modalText.textContent = `You have won with ${playerScore} to ${computerScore}! 🎉`;
         modal.showModal();
     } else if (playerScore < computerScore) {
-        modalText.textContent = `You have lost with ${playerScore} to ${computerScore}!`;
+        modalText.textContent = `You have lost with ${playerScore} to ${computerScore}! 🫠`;
         modal.showModal();
     } else if (playerScore == computerScore) {
-        modalText.textContent = `It's a draw! You both have ${playerScore} points.`;
+        modalText.textContent = `It's a draw! You both have ${playerScore} points. 🤝`;
         modal.showModal();
     }
 }
@@ -93,12 +111,15 @@ function getComputerChoice() {
     switch (randomizer) {
         case 0:
             choice = "Rock";
+            cpuRock.style.visibility = "visible";
             break;
         case 1:
             choice = "Paper";
+            cpuPaper.style.visibility = "visible";
             break;
         case 2:
             choice = "Scissors";
+            cpuScissors.style.visibility = "visible";
             break;
     }
     return choice;
@@ -143,6 +164,3 @@ function determineWinner(player, computer) {
         }
     }
 }
-
-
-

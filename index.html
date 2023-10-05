@@ -10,12 +10,12 @@
     <h1>Rock Paper Scissors</h1>
     <h2>Round <span id="round-num">1</span></h2>
     <div id="play-arena">
-        <button id="rock">🪨</button>
-        <button id="paper">🗞</button>
-        <button id="scissors">✂️</button>
+        <button id="rock">🪨<span id="cpu-rock" class="cpu-choice">🤖</span></button>
+        <button id="paper">🗞<span id="cpu-paper" class="cpu-choice">🤖</span></button>
+        <button id="scissors">✂️<span id="cpu-scissors" class="cpu-choice">🤖</span></button>
     </div>
     <div>
-        <p id="result">Rock...Paper...Scissors!</p>
+        <p id="result">Make your choice!</p>
     </div>
     <div id="score-board">
         <div>
@@ -29,7 +29,7 @@
     </div>
     <dialog id="modal">
         <p id="modal-winner-text">You won!</p>
-        <button id="modal-btn">Play Again</button>
+        <button id="modal-btn">Play again!</button>
     </dialog>
     <script src="play.js"></script>
 </body>
