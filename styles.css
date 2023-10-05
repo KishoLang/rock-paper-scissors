@@ -81,7 +81,7 @@ button:focus {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 5px solid rgb(223, 79, 79);
+    border: 5px solid rgba(0, 0, 0, 0.498);
     border-radius: 15px;
     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
@@ -97,7 +97,7 @@ button:focus {
 #modal-btn {
     width: 120px;
     height: 50px;
-    border: 2px solid rgb(223, 79, 79);
+    border: 2px solid rgba(0, 0, 0, 0.498);
     border-radius: 5px;
     font-size: 20px;
 }
@@ -107,7 +107,7 @@ button:focus {
     width: 121px;
     height: 51px;
     font-size: 20px;
-    border: 4px solid rgb(223, 79, 79);
+    border: 4px solid rgba(0, 0, 0, 0.498);
 }
 
 #modal-btn:focus {
