@@ -6,9 +6,36 @@ body {
     justify-content: center;
     align-items: center;
     cursor: grab;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    #play-arena {
+        width: 200px;
+        height: 200px;
+    }
+
+    button {
+        width: 50px;
+        height: 50px;
+        margin: 0 5px;
+    }
+
+    .cpu-choice {
+        position: absolute;
+        bottom: -5px;
+        left: 15px;
+        visibility: hidden;
+        font-size: 80px;
+    }
 }
 
 h1 {
+    text-align: center;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 55px;
     padding-top: 5%;
